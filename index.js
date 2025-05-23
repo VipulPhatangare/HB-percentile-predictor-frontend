@@ -10,7 +10,7 @@ document.getElementById('percentileForm').addEventListener('submit', async funct
     
     try {
         // Call backend API
-        const response = await fetch('http://localhost:3000/api/calculate-percentile', {
+        const response = await fetch('https://hb-percentile-predictor-backend.onrender.com/api/calculate-percentile', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
