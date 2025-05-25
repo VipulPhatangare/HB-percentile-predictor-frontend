@@ -9,7 +9,7 @@ document.getElementById('percentileForm').addEventListener('submit', async funct
     const shift = document.getElementById('shift').value;
     
     try {
-        // Call backend API
+        // Call backend API https://hb-percentile-predictor-backend.onrender.com/api
         const response = await fetch('https://hb-percentile-predictor-backend.onrender.com/api/calculate-percentile', {
             method: 'POST',
             headers: {
@@ -31,11 +31,11 @@ document.getElementById('percentileForm').addEventListener('submit', async funct
         const data = await response.json();
         
         // Display results
-        document.getElementById('percentileValue').textContent = data.percentile.toFixed(2);
-        document.getElementById('displayMarks').textContent = data.totalMarks + "/200";
-        document.getElementById('displayMath').textContent = mathMarks + "/100";
-        document.getElementById('displayPhysics').textContent = physicsMarks + "/50";
-        document.getElementById('displayChemistry').textContent = chemistryMarks + "/50";
+        document.getElementById('percentileValue').textContent = data.Percentile.toFixed(5);
+        document.getElementById('displayMarks').textContent = data.marks + "/200";
+        document.getElementById('displayMath').textContent = data.math_percentile.toFixed(5);
+        document.getElementById('displayPhysics').textContent = data.physics_percentile.toFixed(5);
+        document.getElementById('displayChemistry').textContent = data.chemistry_percentile.toFixed(5);
         
         // Format and display date
         const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
