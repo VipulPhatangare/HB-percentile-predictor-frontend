@@ -30,12 +30,33 @@ document.getElementById('percentileForm').addEventListener('submit', async funct
 
         const data = await response.json();
         
-        // Display results
-        document.getElementById('percentileValue').textContent = data.Percentile.toFixed(5);
+        if(data.Percentile < 75){
+            document.getElementById('percentileValue').textContent = 'Percentile below 75.00';
+        }else{
+            document.getElementById('percentileValue').textContent = data.Percentile.toFixed(5);
+        }
+
+        if(data.math_percentile.toFixed(5) < 75){
+            document.getElementById('displayMath').textContent = 'Percentile below 75.00';
+        }else{
+            document.getElementById('displayMath').textContent = data.math_percentile.toFixed(5);
+        }
+
+        if(data.chemistry_percentile < 75){
+           document.getElementById('displayChemistry').textContent = 'Percentile below 75.00';
+        }else{
+            document.getElementById('displayChemistry').textContent = data.chemistry_percentile.toFixed(5);
+        }
+
+        if(data.physics_percentile < 75){
+            document.getElementById('displayPhysics').textContent = 'Percentile below 75.00';
+        }else{
+            document.getElementById('displayPhysics').textContent = data.physics_percentile.toFixed(5);
+        }
+
         document.getElementById('displayMarks').textContent = data.marks + "/200";
-        document.getElementById('displayMath').textContent = data.math_percentile.toFixed(5);
-        document.getElementById('displayPhysics').textContent = data.physics_percentile.toFixed(5);
-        document.getElementById('displayChemistry').textContent = data.chemistry_percentile.toFixed(5);
+    
+        
         
         // Format and display date
         const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
