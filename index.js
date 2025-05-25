@@ -10,7 +10,7 @@ document.getElementById('percentileForm').addEventListener('submit', async funct
     
     try {
         // Call backend API https://hb-percentile-predictor-backend.onrender.com/api
-        const response = await fetch('https://hb-percentile-predictor-vercel-backend-production.up.railway.app/api/calculate-percentile', {
+        const response = await fetch('https://hb-percentile-predictor-backend.onrender.com/api/calculate-percentile', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
